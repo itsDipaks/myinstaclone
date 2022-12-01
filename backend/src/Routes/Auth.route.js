@@ -46,9 +46,10 @@ AuthRouter.post("/signup", async (req, res) => {
 
 AuthRouter.post("/login", async (req, res) => {
   const {email, password, username} = req.body;
+  console.log("fire")
   const Checkuser = await UserModel.findOne({email, username});
   if (!Checkuser) {
-    res.status(404).send({msg: "User Not Found Please Signup !! "});
+    res.status(401).send({msg: "User Not Found Please Signup !! "});
   } else {
     const hashedpassword = Checkuser.password;
     bcrypt.compare(password, hashedpassword, function (err, result) {
