@@ -1,11 +1,14 @@
+import { getToken, saveToken } from "../../utils/LocalStorage";
 import {GET_AUTH_LOADING, GET_AUTH_ERROR, GET_AUTH_SUCESS} from "./auth.types";
 const token = localStorage.getItem("token");
 const initialstate = {
   loading: false,
-  error: false,
-  Token: token,
+  token:getToken("token")|| "",
+  error: false
+
 };
-export const Authreducer = (state = initialstate, {type, payload}) => {
+console.log(initialstate)
+export const Authreducer = (state = initialstate, {payload, type}) => {
   switch (type) {
     case GET_AUTH_LOADING: {
       return {
@@ -15,19 +18,26 @@ export const Authreducer = (state = initialstate, {type, payload}) => {
       };
     }
     case GET_AUTH_SUCESS: {
+        const userToken = payload.token;
+        saveToken('token', userToken)
       return {
         ...state,
         loading: false,
         error: false,
-        Token: token,
+        token:userToken
       };
     }
     case GET_AUTH_ERROR: {
       return {
         ...state,
         loading: false,
-        error: true,
+        error: true
       };
+    }
+    default:{
+      return state
     }
   }
 };
+
+
