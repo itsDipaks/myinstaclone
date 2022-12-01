@@ -21,33 +21,41 @@ AuthRouter.post("/signup", async (req, res) => {
       if (err) {
         res.send({msg: "Something wents wrong ", err: err});
       } else {
-        const setuser = new UserModel({
-          email,
-          name,
-          username,
-          password: hashedpassword,
-          country,
-          mobile,
-          gender,
-        });
-        await setuser.save((err, success) => {
-          if (err) {
-            res
-              .status(500)
-              .send({msg: "something wents wrong to uploading the data"});
-          } else {
-            res.status(201).send({msg: "Signup Sucessfully",user:success["_doc"]});
-          }
-        });
+
+        try{
+          const setuser = new UserModel({
+            email,
+            name,
+            username,
+            password: hashedpassword,
+            country,
+            mobile,
+            gender,
+          });
+          await setuser.save()
+          res.status(201).send({msg: "Signup Sucessfully"});
+        }catch(err){
+          res.status(500).send({msg: "something wents wrong to uploading the data"});
+        }
+        // await setuser.save((err, success) => {
+        //   if (err) {
+        //     res
+        //       .status(500)
+        //       .send({msg: "something wents wrong to uploading the data"});
+        //   } else {
+        //     console.log("yessss")
+        //     res.status(201).send({msg: "Signup Sucessfully",user:success["_doc"]});
+        //   }
+        // });
       }
     });
   }
 });
 
 AuthRouter.post("/login", async (req, res) => {
-  const {email, password, username} = req.body;
+  const {email, password} = req.body;
   console.log("fire")
-  const Checkuser = await UserModel.findOne({email, username});
+  const Checkuser = await UserModel.findOne({email});
   if (!Checkuser) {
     res.status(401).send({msg: "User Not Found Please Signup !! "});
   } else {
