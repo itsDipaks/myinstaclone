@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { LoginApi } from "../ReduxStore/Auth/auth.action";
 const Login = () => {
 const dispatch=useDispatch()
@@ -8,12 +8,13 @@ const [formdata,setformdata]=useState({})
 const handeldsubmit=(e)=>{
 e.preventDefault()
 
-console.log(formdata)
+// console.log(formdata)
 dispatch(LoginApi(formdata))
 
 }
 
-
+const data=useSelector((store)=>store.Auth.token)
+console.log(data.token)
 const handeldinputs=(e)=>{
   const {name,value}=e.target
   // console.log(name,value)

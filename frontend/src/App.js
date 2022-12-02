@@ -1,6 +1,7 @@
 
 import './App.css';
 import Navbar from './Components/Navbar';
+import RequiredAuth from './Hoc/RequiredAuth';
 import Allroutes from './Routes/Allroutes';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <h1>Instagram Clone</h1>
       <Navbar/>
       <Allroutes/>
+   
     </div>
   );
 }
