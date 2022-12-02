@@ -6,8 +6,8 @@ const UserSchema = new mongoose.Schema({
   email: { type: String,required: true},
   password: { type: String,required: true},
   mobile: { type: Number,required: true,min:10},
-  country: { type: String,required: true,enum:["india","usa","china","russia"]},
-  gender: { type: String,enum:["male","female","Unspecifide"],required: true},
+  country: { type: String,required: true,enum:["india","usa","china","russia"],default:"india"},
+  gender: { type: String,enum:["male","female","Unspecifide"],required: true,default:"male"},
 });
 
 const UserModel = mongoose.model("userdata", UserSchema);

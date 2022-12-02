@@ -9,14 +9,13 @@ const privateKey = process.env.PRIVATEKEY;
 
 AuthRouter.post("/signup", async (req, res) => {
   const {email} = req.body;
-  const checkExist = await UserModel.findOne({email: email});
+  const checkExist = await UserModel.findOne({email});
   if (checkExist) {
     res
       .status(502)
       .send({msg: "User Already Exist With this Email Plase Login !!"});
   } else {
     const {name, username, password, country, mobile, gender} = req.body;
-    // try {
     bcrypt.hash(password, 4, async function (err, hashedpassword) {
       if (err) {
         res.send({msg: "Something wents wrong ", err: err});
@@ -37,16 +36,6 @@ AuthRouter.post("/signup", async (req, res) => {
         }catch(err){
           res.status(500).send({msg: "something wents wrong to uploading the data"});
         }
-        // await setuser.save((err, success) => {
-        //   if (err) {
-        //     res
-        //       .status(500)
-        //       .send({msg: "something wents wrong to uploading the data"});
-        //   } else {
-        //     console.log("yessss")
-        //     res.status(201).send({msg: "Signup Sucessfully",user:success["_doc"]});
-        //   }
-        // });
       }
     });
   }
@@ -64,7 +53,7 @@ AuthRouter.post("/login", async (req, res) => {
       if (result) {
         const id = Checkuser._id;
         var token = jwt.sign({id: id}, privateKey);
-        res.status(201).send({msg: "Login Sucesefull", Token: token});
+        res.status(200).send( {"token":token});
       } else {
         res
           .status(404)
