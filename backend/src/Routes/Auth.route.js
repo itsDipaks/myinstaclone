@@ -32,9 +32,9 @@ AuthRouter.post("/signup", async (req, res) => {
             gender,
           });
           await setuser.save()
-          res.status(201).send({msg: "Signup Sucessfully"});
+          res.status(201).json({msg: "Signup Sucessfully"});
         }catch(err){
-          res.status(500).send({msg: "something wents wrong to uploading the data"});
+          res.status(500).json({msg: "something wents wrong to uploading the data"});
         }
       }
     });
@@ -52,7 +52,7 @@ AuthRouter.post("/login", async (req, res) => {
     bcrypt.compare(password, hashedpassword, function (err, result) {
       if (result) {
         const id = Checkuser._id;
-        var token = jwt.sign({id: id}, privateKey);
+        var token = jwt.sign({id:id}, privateKey);
         res.status(200).send( {"token":token});
       } else {
         res

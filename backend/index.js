@@ -14,7 +14,6 @@ app.use("/auth",AuthRouter)
 app.use("/profile",UserProfileRouter)
 app.use("/feeds",FeedsRouter)
 
-
 app.listen(8100,async()=>{ 
 try{
    await connection;
