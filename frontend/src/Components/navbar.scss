@@ -1,0 +1,54 @@
+.nav_wrapper {
+    width: 95%;
+    height: 3rem;
+    border: 0.1rem solid red;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    padding: 0rem 1rem 0rem 1rem;
+    justify-content: space-between;
+
+    a {
+        width: 3rem;
+        // border: 1px solid green;
+    }
+
+    .serchbox {
+        // width: 25%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid green;
+        input {
+            border: none;
+            font-size: 1rem;
+            background-color: transparent;
+            text-align: center;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
+    .lastdiv {
+        width: 30%;
+        // border: 1px solid green;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            width: 2rem;
+            border-radius: 50%;
+
+            border: 0.1rem solid red;
+        }
+    }
+}
+.icon {
+    width: 2rem;
+    height: 1.5rem;
+    color: black;
+    cursor: pointer;
+}

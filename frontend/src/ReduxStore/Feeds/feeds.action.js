@@ -10,7 +10,7 @@ export const Postfeeds = (data) => async (dispatch) => {
     type: FEEDS_GET_LOADING,
   });
   try {
-    const response = await axios.post("http://localhost:8100/feeds/");
+    const response = await axios.post("http://localhost:8100/feeds/addpost",data);
 
     dispatch({type: FEEDS_GET_SUCCESS, payload: response.data});
   } catch (error) {
@@ -19,5 +19,59 @@ export const Postfeeds = (data) => async (dispatch) => {
     });
   }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const Getallpost=()=>async(dispatch)=>{
+dispatch({
+  type:FEEDS_GET_LOADING
+})
+try{
+const response=await axios.get("http://localhost:8100/feeds/allfeeds")
+dispatch({
+  type:FEEDS_GET_SUCCESS,
+  payload:response.data
+})
+}catch(err){
+dispatch({
+  type:FEEDS_GET_ERROR
+})
+}
+
+}
+export const GetUserpost=()=>async(dispatch)=>{
+dispatch({
+  type:FEEDS_GET_LOADING
+})
+try{
+const response=await axios.get("http://localhost:8100/feeds/userfeeds")
+dispatch({
+  type:FEEDS_GET_SUCCESS,
+  payload:response.data
+})
+}catch(err){
+dispatch({
+  type:FEEDS_GET_ERROR
+})
+}
+}
+
+
+
 
 
