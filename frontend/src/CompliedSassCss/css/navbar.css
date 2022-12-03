@@ -1,12 +1,12 @@
 .nav_wrapper {
   width: 95%;
-  height: 2rem;
-  border: 0.1rem solid red;
+  height: 2.5rem;
   display: flex;
   margin: auto;
   align-items: center;
   padding: 0rem 1rem 0rem 1rem;
   justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 .nav_wrapper a {
   width: 3rem;

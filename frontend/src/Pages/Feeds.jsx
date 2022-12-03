@@ -1,32 +1,38 @@
 import React, { useState } from 'react'
 import { useRef } from 'react'
-
+import { useDispatch } from 'react-redux';
+import axios from "axios"
+import {Postfeeds} from "../ReduxStore/Feeds/feeds.action.js"
 const Feeds = () => {
 const [Feeddata,SetFeeddata]=useState({})
-
+const dispatch =useDispatch()
 const imaghandeler=useRef()
 
 
-  const handeldsubmit=(e)=>{
+const handeldchange=(e)=>{
+  const {name,value}=e.target
+  SetFeeddata({
+    ...Feeddata,[name]:value
+  })
+}
+
+
+
+const handeldsubmit=(e)=>{
 e.preventDefault()
+let formData = new FormData()
+formData.append("title",Feeddata.title)
+formData.append("description",Feeddata.description)
+formData.append("tags",Feeddata.tags)
+formData.append("image",imaghandeler.current.files[0])
 
-const formdata=new FormData()
-formdata.append("title",Feeddata.title)
-formdata.append("description",Feeddata.description)
-formdata.append("tags",Feeddata.tags)
-
-
-formdata.append("image",imaghandeler.current.files[0])
-  }
-
-  const handeldchange=(e)=>{
-const {name,value}=e.target
-SetFeeddata({
-  ...Feeddata,[name]:value
+// dispatch(Postfeeds(feedformdata))
+const response = axios.post("http://localhost:8100/feeds/addpost",formData,{
+  headers:{ 'Content-Type': 'multipart/form-data'},
 })
-
-
-  }
+}
+ 
+  
   return (
     <div>
 
@@ -36,7 +42,7 @@ SetFeeddata({
         <input type="text" onChange={handeldchange} name='description' placeholder='Please Enter Description ' />
         <input type="text" onChange={handeldchange} name='tags' placeholder='Please Enter Tags ' />
         <input type="file" ref={imaghandeler}   />
-        <input type="submit" />
+        <input type="submit" value={"new post"} />
       </form>
       
 

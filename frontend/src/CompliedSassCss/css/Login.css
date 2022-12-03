@@ -1,1 +1,34 @@
-/*# sourceMappingURL=Login.css.map */
+.loginouterdiv {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.logindiv {
+  width: 35%;
+  margin: auto;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  padding: 4rem 0.5rem;
+  border-radius: 1rem;
+}
+.logindiv img {
+  width: 25%;
+  margin: auto;
+}
+.logindiv form {
+  margin-top: 1rem;
+}
+.logindiv form input {
+  width: 70%;
+  margin: auto;
+  font-size: 0.91rem;
+  padding: 0.32rem;
+  outline: none;
+  border: 0.01rem solid black;
+  margin: 0.5rem;
+  background: transparent;
+  border-radius: 1rem;
+}
+.logindiv p {
+  font-size: 1rem;
+}/*# sourceMappingURL=Login.css.map */

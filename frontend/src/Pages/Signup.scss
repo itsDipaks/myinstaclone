@@ -1,0 +1,57 @@
+@import "_mixin";
+
+.signupdiv {
+    @include flexrow;
+    width: 95%;
+    // border: 1px solid rgb(0, 65, 243);
+    height: 90vh;
+    margin: auto;
+    justify-content: space-around;
+    .signupimg {
+        width: 50%;
+        margin: auto;
+        // border: 1px solid red;
+        img {
+            width: 70%;
+            // height: 5rem;
+        }
+    }
+    .formdiv {
+        width: 30%;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 1.4rem;
+        border-radius: 0.5rem;
+
+        img {
+            width: 35%;
+        }
+        form {
+            input {
+                width: 70%;
+                margin: auto;
+                font-size: 0.71rem;
+                padding: 0.32rem;
+                outline: none;
+                border: 0.01rem solid black;
+                margin: 0.5rem;
+                background: transparent;
+                border-radius: 1rem;
+            }
+        }
+        p{
+            font-size: 0.8rem
+        }
+    }
+}
+
+
+.selsectdiv {
+    @include flexrow;
+    width: 50%;
+    margin: auto;
+    select {
+        font-size: 0.8rem;
+        width: 5rem;
+    }
+}

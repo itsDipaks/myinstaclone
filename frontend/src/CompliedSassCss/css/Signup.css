@@ -1,0 +1,54 @@
+.signupdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 90vh;
+  margin: auto;
+  justify-content: space-around;
+}
+.signupdiv .signupimg {
+  width: 50%;
+  margin: auto;
+}
+.signupdiv .signupimg img {
+  width: 70%;
+}
+.signupdiv .formdiv {
+  width: 30%;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1.4rem;
+  border-radius: 0.5rem;
+}
+.signupdiv .formdiv img {
+  width: 35%;
+}
+.signupdiv .formdiv form input {
+  width: 70%;
+  margin: auto;
+  font-size: 0.71rem;
+  padding: 0.32rem;
+  outline: none;
+  border: 0.01rem solid black;
+  margin: 0.5rem;
+  background: transparent;
+  border-radius: 1rem;
+}
+.signupdiv .formdiv p {
+  font-size: 0.8rem;
+}
+
+.selsectdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: auto;
+}
+.selsectdiv select {
+  font-size: 0.8rem;
+  width: 5rem;
+}/*# sourceMappingURL=Signup.css.map */

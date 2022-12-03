@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { LoginApi } from "../ReduxStore/Auth/auth.action";
+import "../CompliedSassCss/css/Login.css"
+import { Link } from "react-router-dom";
 const Login = () => {
 const dispatch=useDispatch()
 const [formdata,setformdata]=useState({})
@@ -25,13 +27,23 @@ const handeldinputs=(e)=>{
 }
 
   return (
-    <div>
-      <form action="" onSubmit={handeldsubmit}>
+    <>
+
+      <div className="loginouterdiv">
+
+<div className="logindiv">
+  <img src="https://i.imgur.com/zqpwkLQ.png" alt="" />
+<form action="" onSubmit={handeldsubmit}>
         <input type="text" placeholder="Enter Email" name="email" onChange={handeldinputs} />
         <input type="text" placeholder="Enter Password" name="password" onChange={handeldinputs} />
         <input type="submit" value="Login" />
       </form>
-    </div>
+      <p>New here ? <span><Link to={"/signup"}>Signup</Link></span></p>
+</div>
+    
+      </div>
+   
+    </>
   );
 };
 
