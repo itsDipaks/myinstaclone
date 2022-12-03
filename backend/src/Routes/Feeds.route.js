@@ -5,7 +5,7 @@ const { Authenticate } = require("../middleware/Auth.middleware")
 
 const FeedsRouter=Router()
 
-FeedsRouter.post("/addpost",Authenticate,FeedCRUDController)
+FeedsRouter.post("/addpost",Authenticate,FeedCRUDController.Addfeed)
 
 
 FeedsRouter.get("/allfeeds",GetFeedsController.GetallFeeds)
@@ -13,7 +13,8 @@ FeedsRouter.get("/allfeeds",GetFeedsController.GetallFeeds)
 
 FeedsRouter.get("/userfeeds",Authenticate,GetFeedsController.GetUserFeeds)
 
-FeedsRouter.delete("/userfeeds/:feedId",Authenticate,)
+// FeedsRouter.delete("/userfeeds/:feedId",Authenticate,)
+
 
 
 module.exports={FeedsRouter}
