@@ -1,7 +1,12 @@
 const { FeedsModel } = require("../models/Feeds.model")
 
-const Addfeed=async(req,res)=>{
+
+
+
+
+const Addfeed=async (req,res)=>{
     const {title,description,tag,id}=req.body
+    console.log(req.body)
     try{
         const postfeed=new FeedsModel({
             title,description,tag,id
