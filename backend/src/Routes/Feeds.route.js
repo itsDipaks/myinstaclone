@@ -1,11 +1,11 @@
 const {Router}=require("express")
-const { FeedCRUDController } = require("../Controllers/AddFeed.controller")
+const { FeedCRUDController } = require("../Controllers/FeedCRUDController.controller")
 const { GetFeedsController } = require("../Controllers/GetFeed.controller")
 const { Authenticate } = require("../middleware/Auth.middleware")
 
 const FeedsRouter=Router()
 
-FeedsRouter.post("/addpost",Authenticate,FeedCRUDController.Addfeed)
+FeedsRouter.post("/addpost",Authenticate,FeedCRUDController)
 
 
 FeedsRouter.get("/allfeeds",GetFeedsController.GetallFeeds)
