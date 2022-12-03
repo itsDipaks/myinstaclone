@@ -1,0 +1,25 @@
+.feeddiv {
+  border: 1px solid red;
+  width: 55%;
+  margin: auto;
+  height: 60vh;
+}
+.feeddiv .feeduserinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  justify-content: start;
+  gap: 1rem;
+  margin: auto;
+  height: 1.5rem;
+  border: 1px solid rgba(225, 0, 255, 0.908);
+  text-align: start;
+}
+.feeddiv .feeduserinfo img {
+  width: 5%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid red;
+}/*# sourceMappingURL=Home.css.map */

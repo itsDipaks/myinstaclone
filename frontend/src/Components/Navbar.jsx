@@ -48,11 +48,7 @@ const Navbar = () => {
           </Link>
         </div>
       </nav>
-      {/* <div style={{width:"70%",margin:"auto",display:"flex",flexDirection:"row",justifyContent:"space-evenly",marginBottom:"1rem",fontSize:"2rem",border:"1rem solid red"}}>
-        {links.map((li)=><ul  key={li.id}><li style={{listStyle:"none"}}><Link to={li.path}>{li.name}</Link></li></ul>)}
-<button onClick={handeldlogout}>Logout</button>
-    </div>
-<h1 className="tag">Dipak Pawar</h1> */}
+     
     </>
   );
 };

@@ -1,0 +1,77 @@
+.userinfodiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 25vh;
+  width: 65%;
+  justify-content: space-evenly;
+  border: 0.1rem solid red;
+  margin: auto;
+}
+.userinfodiv .imgdiv {
+  width: 15%;
+  height: 80%;
+  border-radius: 50%;
+}
+.userinfodiv .imgdiv img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.userinfodiv .infodiv {
+  width: 60%;
+}
+.userinfodiv .infodiv .namediv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0;
+  line-height: 0.1rem;
+}
+.userinfodiv .infodiv .namediv button {
+  width: 4rem;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.userinfodiv .infodiv p {
+  font-size: 0.71rem;
+  line-height: 0.1rem;
+  text-align: center;
+}
+.userinfodiv .followers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+.postdiv {
+  width: 65%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+}
+.postdiv .postimgdiv {
+  width: 100%;
+  margin: auto;
+  border: 0.1rem solid rgb(131, 255, 8);
+}
+.postdiv .postimgdiv img {
+  width: 70%;
+}
+.postdiv .postimgdiv .posticon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  border: 1px solid red;
+}/*# sourceMappingURL=Profile.css.map */
