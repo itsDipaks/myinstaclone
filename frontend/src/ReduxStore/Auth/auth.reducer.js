@@ -77,8 +77,8 @@ export const Authreducer = (state = initialstate, {payload, type}) => {
     case GET_AUTH_SUCESS: {
       if(payload.token){
         localStorage.setItem("token",payload.token)
-        console.log(payload.user_id+"ghghg")
-        // localStorage.setItem("user_id",payload.user_id)
+        console.log(payload.user_id)
+        localStorage.setItem("user_id",JSON.stringify( payload.user_id))
       }
       return {
         ...state,
