@@ -7,6 +7,7 @@ export const LoginApi = (cred) => async (dispatch) => {
   });
   try {
     const response = await axios.post(`http://localhost:8100/auth/login`, cred);
+    console.log(response)
     dispatch({
       type: GET_AUTH_SUCESS,
       payload: response.data
@@ -25,6 +26,7 @@ export const SignupApi = (cred) => async (dispatch) => {
   });
   try {
     const response = await axios.post(`http://localhost:8100/auth/signup`, cred);
+
     dispatch({
       type: GET_AUTH_SUCESS,
       payload: response.data,
