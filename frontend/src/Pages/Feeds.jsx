@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useRef } from 'react'
 import { useDispatch } from 'react-redux';
-import axios from "axios"
-import {Postfeeds} from "../ReduxStore/Feeds/feeds.action.js"
+import { Postfeeds } from '../ReduxStore/Feeds/feeds.action';
 const Feeds = () => {
 const [Feeddata,SetFeeddata]=useState({})
 const dispatch =useDispatch()
@@ -26,10 +25,8 @@ formData.append("description",Feeddata.description)
 formData.append("tags",Feeddata.tags)
 formData.append("image",imaghandeler.current.files[0])
 
-// dispatch(Postfeeds(feedformdata))
-const response = axios.post("http://localhost:8100/feeds/addpost",formData,{
-  headers:{ 'Content-Type': 'multipart/form-data'},
-})
+dispatch(Postfeeds(formData))
+
 }
  
   

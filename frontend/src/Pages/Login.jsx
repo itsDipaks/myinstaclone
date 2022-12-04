@@ -16,7 +16,7 @@ dispatch(LoginApi(formdata))
 }
 
 const data=useSelector((store)=>store.Auth.token)
-console.log(data.token)
+// console.log(data.token)
 const handeldinputs=(e)=>{
   const {name,value}=e.target
   // console.log(name,value)

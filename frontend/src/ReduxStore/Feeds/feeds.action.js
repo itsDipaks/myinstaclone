@@ -5,22 +5,23 @@ import {
   FEEDS_GET_ERROR,
 } from "./feeds.type";
 
-export const Postfeeds = (feedformdata) => async (dispatch) => {
- console.log(feedformdata)
+export const Postfeeds = (formData) => async (dispatch) => {
   dispatch({
     type: FEEDS_GET_LOADING,
   });
+  let token=localStorage.getItem("token")
   try {
-    const response = await axios.post("http://localhost:8100/feeds/addpost",feedformdata,{
-      headers:{"Content-Type":"multipart/form-data"}
-    });
-console.log(response)
-    dispatch({type: FEEDS_GET_SUCCESS, payload: response.data});
+    const response = await axios.post("http://localhost:8100/feeds/addpost",formData,{ headers: {
+      'Content-Type': 'multipart/form-data',
+      "token":token
+    }});
+    dispatch({type: FEEDS_GET_SUCCESS, payload:response.data});
+    return response.data
   } catch (error) {
     dispatch({
       type: FEEDS_GET_ERROR,
     });
-    console.log(error)
+    // console.log(error)
   }
 };
 

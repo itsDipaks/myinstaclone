@@ -5,7 +5,7 @@ const initialstate = {
   token: token,
   error: false
 };
-console.log(initialstate)
+// console.log(initialstate)
 export const Authreducer = (state = initialstate, {payload, type}) => {
   switch (type) {
     case GET_AUTH_LOADING: {
@@ -18,6 +18,8 @@ export const Authreducer = (state = initialstate, {payload, type}) => {
     case GET_AUTH_SUCESS: {
       if(payload.token){
         localStorage.setItem("token",payload.token)
+        console.log(payload.user_id+"ghghg")
+        // localStorage.setItem("user_id",payload.user_id)
       }
       return {
         ...state,
