@@ -12,8 +12,10 @@ res.status(404).send({msg:"Not Found !!"})
 
 
 
+
 const GetUserFeeds=async(req,res)=>{
     const {id}=req.body
+    console.log(id)
     try{
         const Userfeeds=await FeedsModel.find({id})
         res.status(20).send(Userfeeds)

@@ -51,9 +51,9 @@ AuthRouter.post("/login", async (req, res) => {
     const hashedpassword = Checkuser.password;
     bcrypt.compare(password, hashedpassword, function (err, result) {
       if (result) {
-        const id = Checkuser._id;
-        var token = jwt.sign({id:id}, privateKey);
-        res.status(200).send( {"token":token});
+        const user_id = Checkuser._id;
+        var token = jwt.sign({user_id}, privateKey);
+        res.status(200).send( {"token":token,"user_id":user_id});
       } else {
         res
           .status(404)

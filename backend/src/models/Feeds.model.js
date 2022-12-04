@@ -4,7 +4,7 @@ title:{type:String},
 // img:{type:String},
 description:{type:String},
 tag:{type:String},
-id:{type:String,required:true}
+// id:{type:String,required:true}
 })
 const FeedsModel=mongoose.model("Feed",FeedsSchema)
 
