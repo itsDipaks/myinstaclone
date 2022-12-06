@@ -64,7 +64,7 @@
   border: 0.1rem solid rgb(131, 255, 8);
 }
 .postdiv .postimgdiv img {
-  width: 70%;
+  width: 100%;
 }
 .postdiv .postimgdiv .posticon {
   display: flex;

@@ -54,7 +54,7 @@ console.log(feedsData)
 
 
 <div className='postdiv'>
-  {feedsData.map((el)=>
+  {feedsData.map(el=>
 <div className='postimgdiv'>
   <img src={`http://localhost:8100/static/${el.imagepath}`} alt="post" />
 <div className='posticon'>

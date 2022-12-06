@@ -55,7 +55,7 @@
 
 .postdiv {
     // height: 60vh;
-    width: 65%;
+    width: 75%;
     // border: 0.1rem solid rgb(131, 255, 8);
     margin: auto;
     display: grid;
@@ -70,13 +70,14 @@
             border: 0.1rem solid rgb(131, 255, 8);
 
         img{
-            width: 70%;
+            width: 90%;
         }
         .posticon{
             @include flexrow;
             width: 70%;
             margin: auto;
             border: 1px solid red;
+
 
         }
     }
