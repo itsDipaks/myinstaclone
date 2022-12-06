@@ -7,7 +7,7 @@ const { FeedsModel } = require("../models/Feeds.model")
 const Addfeed=async (req,res)=>{
     let user_id=req.headers.user_id
     let {title,description,tags}= req.body
-    let imagepath=`${__dirname}/../FeedsUplaods/${req.file.originalname}`
+    let imagepath=`${__dirname}/../../../FeedsUplaods/${req.file.originalname}`
     // console.log(user_id)
     try{
         const postfeed=new FeedsModel({
