@@ -18,6 +18,8 @@ const GetUserFeeds=async(req,res)=>{
    console.log(user_id)
     try{
         const Userfeeds=await FeedsModel.find({user_id})
+
+        // const feedimage=Userfeeds.imagepath
         res.status(201).send(Userfeeds)
     }catch(error){
         res.status(404).json({msg:"Not Found !!",error})
