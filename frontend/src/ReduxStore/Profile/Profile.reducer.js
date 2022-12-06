@@ -30,7 +30,8 @@ export const ProfileReducer=(state=initialstate,{type,payload})=>{
                 error:true
             }
         }
-        default:return state
-        
+        default:{
+            return state
+        }
     }
 }

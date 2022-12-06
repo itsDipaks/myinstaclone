@@ -10,7 +10,7 @@
   justify-content: space-between;
   align-items: center;
   width: 95%;
-  justify-content: start;
+  /* justify-content: start; */
   gap: 1rem;
   margin: auto;
   height: 1.5rem;

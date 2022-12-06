@@ -6,33 +6,42 @@ import { AiOutlineHeart,AiOutlineDelete } from 'react-icons/ai'
 import { FiEdit } from 'react-icons/fi'
 import { useEffect } from 'react';
 import { GetUsersFeeds } from '../ReduxStore/Feeds/feeds.action';
-import { useState } from 'react';
+import { Getprofile } from '../ReduxStore/Profile/profile.action';
+import menicon from "../StaticData/Profileman.png"
+import womenicon from "../StaticData/Profilewomen.png"
 const Profile = () => {
-// const [data,setdata]=useState([])
   const dispatch = useDispatch();
   const handeldlogout = () => {
     dispatch(Logout());
   };
-
+const olpageload=()=>{
+  dispatch(GetUsersFeeds())
+dispatch(Getprofile())
+}
   useEffect(()=>{
-dispatch(GetUsersFeeds())
+    olpageload()
   },[])
-
+const profileData=useSelector((store)=>store.Profile.data)
+console.log(profileData)
   const feedsData=useSelector((store)=>store.Feeds.data)
-console.log(feedsData)
+// console.log(feedsData)
   return (
     <>
-      
+      {profileData.map((el)=>
 <div className='userinfodiv'>
+
+
+
+
 <div className='imgdiv'>
-<img src="https://avatars.githubusercontent.com/u/96649241?v=4" alt="" />
+<img src={el.Profileimg?el.Profileimg:menicon }/> 
 </div>
 
 
 <div className='infodiv'>
 
 <div className='namediv'>
-  <h2>Dipak Pawar</h2>
+  <h2>{el.name}</h2>
   <button onClick={handeldlogout}>Logout</button>
 </div>
 
@@ -42,13 +51,12 @@ console.log(feedsData)
 <p>10 <span>Following</span></p>
 </div>
 
-<p>Email : <span>itsdipakspawar4206@gmail.com</span></p>
-<p>Mobile Number : <span>8600405446</span></p>
-<p>Date Of Birth : <span>20/05/1998</span></p>
+<p>Email : <span>{el.email}</span></p>
+<p>Mobile Number : <span>{el.mobile}</span></p>
 </div>
 
 </div>
-
+)}
 
 
 
