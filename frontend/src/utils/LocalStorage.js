@@ -17,7 +17,7 @@
 //     return data
 // }
 
-export const getToken = (key) => {
+export const getlocalsdata = (key) => {
     try {
         let data = localStorage.getItem(key);
         data = JSON.parse(data)
@@ -28,6 +28,6 @@ export const getToken = (key) => {
 }
 
 
-export const saveToken = (key, data) =>{
+export const saveLocalsdata = (key, data) =>{
     localStorage.setItem(key,JSON.stringify(data));
 }

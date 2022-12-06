@@ -1,19 +1,25 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import "../CompliedSassCss/css/Profile.css"
 import { Logout } from '../ReduxStore/Auth/auth.action';
 import { AiOutlineHeart,AiOutlineDelete } from 'react-icons/ai'
 import { FiEdit } from 'react-icons/fi'
+import { useEffect } from 'react';
+import { GetUsersFeeds } from '../ReduxStore/Feeds/feeds.action';
+import { useState } from 'react';
 const Profile = () => {
-
+// const [data,setdata]=useState([])
   const dispatch = useDispatch();
-
   const handeldlogout = () => {
     dispatch(Logout());
   };
 
+  useEffect(()=>{
+dispatch(GetUsersFeeds())
+  },[])
 
-
+  const feedsData=useSelector((store)=>store.Feeds.data)
+console.log(feedsData)
   return (
     <>
       
@@ -48,9 +54,9 @@ const Profile = () => {
 
 
 <div className='postdiv'>
-  {/* { data.map ((el)=>*/}
+  {feedsData.map((el)=>
 <div className='postimgdiv'>
-  <img src="https://avatars.githubusercontent.com/u/96649241?v=4" alt="" />
+  <img src={`http://localhost:8100/static/${el.imagepath}`} alt="post" />
 <div className='posticon'>
 <AiOutlineHeart/>
 <FiEdit/>
@@ -58,7 +64,7 @@ const Profile = () => {
 
 </div>
 </div>
-{/* )} */}
+ )}
 </div>
     </>
   )

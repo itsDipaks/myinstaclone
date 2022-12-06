@@ -1,4 +1,6 @@
 import axios from "axios";
+import { baseUrl } from "../../utils/Baseurl";
+import { getlocalsdata } from "../../utils/LocalStorage";
 import {
   FEEDS_GET_LOADING,
   FEEDS_GET_SUCCESS,
@@ -9,11 +11,14 @@ export const Postfeeds = (formData) => async (dispatch) => {
   dispatch({
     type: FEEDS_GET_LOADING,
   });
-  let token=localStorage.getItem("token")
+  let token=getlocalsdata("token") || ""
+
+  const user_id=getlocalsdata("user_id")|| ""
   try {
     const response = await axios.post("http://localhost:8100/feeds/addpost",formData,{ headers: {
       'Content-Type': 'multipart/form-data',
-      "token":token
+      "token":token,
+      "user_id":user_id
     }});
     dispatch({type: FEEDS_GET_SUCCESS, payload:response.data});
     return response.data
@@ -28,6 +33,28 @@ export const Postfeeds = (formData) => async (dispatch) => {
 
 
 
+export const GetUsersFeeds=()=>async(dispatch)=>{
+  dispatch({
+    type:FEEDS_GET_LOADING
+  })
+  const user_id=getlocalsdata("user_id")
+  const token=getlocalsdata("token")
+  try{
+    const response=await axios.get(`${baseUrl}/feeds/userfeeds/${user_id}`,{
+      headers:{
+        "token":token
+      }
+    })
+    dispatch({
+      type:FEEDS_GET_SUCCESS,
+      payload:response.data
+    })
+  }catch(err){
+    dispatch({
+      type:FEEDS_GET_ERROR,
+    })
+  }
+}
 
 
 
