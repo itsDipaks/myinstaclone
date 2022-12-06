@@ -9,7 +9,7 @@ const FeedsRouter=Router()
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null,`${__dirname}/uploads`)
+      cb(null,`${__dirname}/../FeedsUplaods`)
     },
     filename: function (req, file, cb) {
       cb(null,file.originalname)
@@ -25,12 +25,7 @@ FeedsRouter.post("/addpost",Authenticate,uploads.single("image"),FeedCRUDControl
 FeedsRouter.get("/allfeeds",GetFeedsController.GetallFeeds)
 
 
-FeedsRouter.get("/userfeeds",Authenticate,(req,res)=>{
-    // const id=req.body.id
-    console.log("id")
-}
-// GetFeedsController.GetUserFeeds
-)
+FeedsRouter.get("/userfeeds/:user_id",Authenticate,GetFeedsController.GetUserFeeds)
 
 // FeedsRouter.delete("/userfeeds/:feedId",Authenticate,)
 

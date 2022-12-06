@@ -6,10 +6,12 @@ const cors=require("cors")
 const { FeedsRouter } = require("./src/Routes/Feeds.route")
 const app=express()
 
+
+
 app.use(express.json())
 app.use(cors())
 
-
+app.use("/static",express.static(`${__dirname}/FeedsUploads`))
 app.use("/auth",AuthRouter)
 app.use("/profile",UserProfileRouter)
 app.use("/feeds",FeedsRouter)

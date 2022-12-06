@@ -14,16 +14,15 @@ res.status(404).send({msg:"Not Found !!"})
 
 
 const GetUserFeeds=async(req,res)=>{
-    const {id}=req.body
-    console.log(id)
+   const user_id=req.params.user_id;
+   console.log(user_id)
     try{
-        const Userfeeds=await FeedsModel.find({id})
-        res.status(20).send(Userfeeds)
+        const Userfeeds=await FeedsModel.find({user_id})
+        res.status(201).send(Userfeeds)
     }catch(error){
-        res.status(404).send({msg:"Not Found !!"})
+        res.status(404).json({msg:"Not Found !!",error})
 
     }
-   
 }
 
 const GetFeedsController={GetallFeeds,GetUserFeeds}
