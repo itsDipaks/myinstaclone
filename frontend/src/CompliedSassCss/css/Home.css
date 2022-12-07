@@ -1,25 +1,88 @@
-.feeddiv {
-  border: 1px solid red;
-  width: 55%;
+.homepagediv {
+  width: 50%;
   margin: auto;
-  height: 60vh;
+  border: 1px solid rgb(0, 252, 34);
+}
+
+.feeddiv {
+  gap: 0;
+  border: 1px solid red;
+  width: 100%;
+  margin: auto;
+  height: 90vh;
 }
 .feeddiv .feeduserinfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 95%;
-  /* justify-content: start; */
+  width: 100%;
+  justify-content: start;
   gap: 1rem;
   margin: auto;
-  height: 1.5rem;
-  border: 1px solid rgba(225, 0, 255, 0.908);
+  height: 6%;
   text-align: start;
+  margin-bottom: 0.51rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 .feeddiv .feeduserinfo img {
   width: 5%;
   height: 100%;
   border-radius: 50%;
   border: 1px solid red;
+}
+.feeddiv .feedimg {
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  border: 1px solid rgb(0, 8, 255);
+}
+.feeddiv .feedimg img {
+  width: 90%;
+  height: 100%;
+}
+.feeddiv .feedbottom .icondiv {
+  height: 2rem;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.feeddiv .feedbottom .icondiv .likeicon {
+  cursor: pointer;
+  width: 5rem;
+  height: 1.5rem;
+}
+.feeddiv .feedbottom .icondiv .commenticon {
+  cursor: pointer;
+  width: 5rem;
+  height: 1.5rem;
+}
+.feeddiv .feedbottom .addcommentdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 70%;
+  margin: auto;
+}
+.feeddiv .feedbottom .addcommentdiv input {
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 0.31rem;
+}
+.feeddiv .feedbottom .addcommentdiv input:focus {
+  outline: none;
+}
+.feeddiv .feedbottom .addcommentdiv .addcommentbtn {
+  cursor: pointer;
+  width: 5%;
+  height: 1.2rem;
+  padding: 0.51rem;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }/*# sourceMappingURL=Home.css.map */

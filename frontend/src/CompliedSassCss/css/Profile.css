@@ -10,7 +10,7 @@
   margin: auto;
 }
 .userinfodiv .imgdiv {
-  width: 15%;
+  width: 25%;
   height: 80%;
   border-radius: 50%;
 }
@@ -51,7 +51,7 @@
 }
 
 .postdiv {
-  width: 65%;
+  width: 60%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -64,7 +64,7 @@
   border: 0.1rem solid rgb(131, 255, 8);
 }
 .postdiv .postimgdiv img {
-  width: 100%;
+  width: 90%;
 }
 .postdiv .postimgdiv .posticon {
   display: flex;
