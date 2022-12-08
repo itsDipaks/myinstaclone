@@ -3,10 +3,12 @@ import {Authreducer} from "./Auth/auth.reducer";
 import thunk from "redux-thunk";
 import { FeedsReducer } from "./Feeds/feeds.reducer";
 import { ProfileReducer } from "./Profile/Profile.reducer";
+import { CommentReducer } from "./Comment/comment.reducer";
 const rootReducer = combineReducers({
   Auth: Authreducer,
   Feeds:FeedsReducer,
-  Profile:ProfileReducer
+  Profile:ProfileReducer,
+  Comment:CommentReducer
 });
 
 const createComposer=Window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -1,94 +1,113 @@
 @import "_mixin";
 
-.homepagediv{
-    width: 50%;
-    margin: auto;
-    border: 1px solid rgb(0, 252, 34);
+.homepagediv {
+  width: 40%;
+  margin: auto;
+  // border: 1px solid rgb(0, 252, 34);
 }
-.feeddiv{
-    gap: 0;
-    border: 1px solid red;
-    width: 100%;
-    margin: auto;
-    height: 90vh;
-    .feeduserinfo{
-        @include flexrow;
-        width: 100%;
-        justify-content: start;
-       gap: 1rem;
-        margin: auto;
-        height:6%;
-        text-align: start;
-        margin-bottom: 0.51rem;
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-        img{
-            width: 5%;
-            height: 100%;
-            border-radius: 50%;
-            border: 1px solid red;
-        }
-    }
-
-    .feedimg{
-        width: 90%;
-        height: 80%;
-        margin: auto;
-        border: 1px solid rgb(0, 8, 255);
-
-        img{
-            width: 90%;
-            height: 100%;
-        }
-    }
-
-    .feedbottom{
-
-
-.icondiv{
-height: 2rem;
-width: 30%;
+.feeddiv {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 100%;
+  margin: auto;
+  padding-bottom: 2rem;
+  margin: 1rem;
+  // height/: 95vh;
+  .feeduserinfo {
     @include flexrow;
-    justify-content: space-evenly;
-    .likeicon{
+    width: 100%;
+    justify-content: start;
+    gap: 2rem;
+    margin: auto;
+    height: 6%;
+    text-align: start;
+    margin-bottom: 0.51rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    img {
+      width: 5%;
+      height: 100%;
+      border-radius: 50%;
+      // border: 1px solid red;
+    }
+  }
+
+  .feedimg {
+    width: 75%;
+    height: 80%;
+    margin: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5%;
+    img {
+      width: 90%;
+      height: 100%;
+    }
+  }
+
+  .feedbottom {
+    .icondiv {
+      // height: 2rem;
+      width: 30%;
+      @include flexrow;
+      justify-content: space-evenly;
+      .likeicon {
         cursor: pointer;
         width: 5rem;
         height: 1.5rem;
-        }
-        .commenticon{
+      }
+      .commenticon {
         cursor: pointer;
         width: 5rem;
         height: 1.5rem;
         // border: 1px solid red;
+      }
+    }
+
+    .addcommentdiv {
+      @include flexrow;
+      justify-content: space-evenly;
+      width: 92%;
+      margin: auto;
+      padding: 0.2rem;
+      border: 1px solid rgb(175, 174, 174);
+      input {
+        width: 100%;
+        border: none;
+        padding: 0.31rem;
+        &:focus {
+          outline: none;
         }
-        
+      }
+
+      .addcommentbtn {
+        cursor: pointer;
+        width: 5%;
+        height: 1.2rem;
+        padding: 0.51rem;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+          rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+          rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+          rgba(0, 0, 0, 0.07) 0px 32px 64px;
+      }
+    }
+  }
 }
 
-.addcommentdiv{
+.postinfo {
+  line-height: 0.1;
+  text-align: start;
+  margin-left: 4rem;
+  .showmore {
+    cursor: pointer;
     @include flexrow;
-    justify-content: space-evenly;
-    width: 70%;
-    margin: auto;
-    input{
-width: 80%;
-
-border: none;
-border-bottom: 1px solid black;
-padding: 0.31rem;
-
-&:focus{
-    outline: none;
-}
-    }
-
-
-    .addcommentbtn{
-cursor: pointer;
-width: 5%;
-height: 1.2rem;
-padding: 0.51rem;
-border-radius: 50%;
-box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-    }
-}
-    }
+    justify-content: start;
+    color: grey;
+    font-size: 1rem;
+  }
+  .description {
+    // @include flexrow;
+    font-size: 0.81rem;
+    line-height: 0.52;
+    // flex-direction: column;
+  }
 }

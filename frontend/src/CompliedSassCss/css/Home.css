@@ -1,15 +1,14 @@
 .homepagediv {
-  width: 50%;
+  width: 40%;
   margin: auto;
-  border: 1px solid rgb(0, 252, 34);
 }
 
 .feeddiv {
-  gap: 0;
-  border: 1px solid red;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 100%;
   margin: auto;
-  height: 90vh;
+  padding-bottom: 2rem;
+  margin: 1rem;
 }
 .feeddiv .feeduserinfo {
   display: flex;
@@ -18,7 +17,7 @@
   align-items: center;
   width: 100%;
   justify-content: start;
-  gap: 1rem;
+  gap: 2rem;
   margin: auto;
   height: 6%;
   text-align: start;
@@ -29,20 +28,19 @@
   width: 5%;
   height: 100%;
   border-radius: 50%;
-  border: 1px solid red;
 }
 .feeddiv .feedimg {
-  width: 90%;
+  width: 75%;
   height: 80%;
   margin: auto;
-  border: 1px solid rgb(0, 8, 255);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 5%;
 }
 .feeddiv .feedimg img {
   width: 90%;
   height: 100%;
 }
 .feeddiv .feedbottom .icondiv {
-  height: 2rem;
   width: 30%;
   display: flex;
   flex-direction: row;
@@ -66,13 +64,14 @@
   justify-content: space-between;
   align-items: center;
   justify-content: space-evenly;
-  width: 70%;
+  width: 92%;
   margin: auto;
+  padding: 0.2rem;
+  border: 1px solid rgb(175, 174, 174);
 }
 .feeddiv .feedbottom .addcommentdiv input {
-  width: 80%;
+  width: 100%;
   border: none;
-  border-bottom: 1px solid black;
   padding: 0.31rem;
 }
 .feeddiv .feedbottom .addcommentdiv input:focus {
@@ -85,4 +84,24 @@
   padding: 0.51rem;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.postinfo {
+  line-height: 0.1;
+  text-align: start;
+  margin-left: 4rem;
+}
+.postinfo .showmore {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: start;
+  color: grey;
+  font-size: 1rem;
+}
+.postinfo .description {
+  font-size: 0.81rem;
+  line-height: 0.52;
 }/*# sourceMappingURL=Home.css.map */
