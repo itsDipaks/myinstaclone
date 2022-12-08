@@ -8,11 +8,7 @@ const Authenticate = (req, res, next) => {
 
   if (token) {
     jwt.verify(token, privateKey, function (err, decoded) {
-    //  const user_id=decoded.user_id
-    //  console.log(user_id)
-     
       if (decoded) {
-    //  req.body.user_id=user_id
         next();
       } else {
         res.status(401).json({msg: "Authentication Faild", err: err});
