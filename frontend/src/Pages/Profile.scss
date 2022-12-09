@@ -75,16 +75,32 @@
     }
 }
 
+// .modelbox{
+//     width: 90vw;
+//     position: absolute;
+//     top: 25%;
+//     left: 25%;
+//     transform: "translate(-50%, -50%)";
 
+// }
 .hoverdiv{
 @include flexrow;
+align-items: center;
 // justify-content: space-evenly;
-img{
-    width: 20rem;
-    border: 1px solid red;
+.modelimgdiv{
+height:70vh;
+    width: 60%;
+    img{
+        width:100%;
+        height: 50vh;
+        border: 1px solid red;
+    }
 }
+
 .infodiv{
     border: 1px solid green;
     text-align: start;
+    width: 40%;
+    height: 70vh;
 }
 }

@@ -59,6 +59,32 @@ export const GetUsersFeeds = () => async (dispatch) => {
   }
 };
 
+
+export const Deletepost=(post_id)=>async(dispatch)=>{
+dispatch({
+  type:FEEDS_GET_LOADING
+})
+const user_id = getlocalsdata("user_id");
+const token = getlocalsdata("token");
+try{
+  const response=await axios.delete(`${baseUrl}/feeds/delete/${post_id}`,
+{  headers:{
+  "token":token,
+  "user_id":user_id
+  }}
+  )
+
+  dispatch({
+    type:FEEDS_GET_SUCCESS,
+    payload:response.data
+  })
+}catch(err){
+  dispatch({
+    type:FEEDS_GET_ERROR,
+  })
+}
+}
+
 export const Getallpost = () => async (dispatch) => {
   dispatch({
     type: FEEDS_GET_LOADING,
@@ -75,6 +101,7 @@ export const Getallpost = () => async (dispatch) => {
     });
   }
 };
+
 export const GetUserpost = () => async (dispatch) => {
   dispatch({
     type: FEEDS_GET_LOADING,

@@ -11,6 +11,7 @@ import {useState} from "react";
 import Tooltip from "@mui/material/Tooltip";
 import {AddComment} from "../ReduxStore/Comment/comment.action";
 import {IconButton} from "@mui/material";
+import { baseUrl } from "../utils/Baseurl";
 
 const Home = () => {
   const [comment, setcomment] = useState("");
@@ -21,8 +22,9 @@ const Home = () => {
   const dispatch = useDispatch();
   const data = useSelector((store) => store.Feeds.data);
   console.log(data);
-  const addcomment = () => {
+  const addcomment = (id) => {
     dispatch(AddComment(comment));
+    console.log(id)
   };
   useEffect(() => {
     dispatch(Getallpost());
@@ -33,17 +35,17 @@ const Home = () => {
         <div className="feeddiv">
           <div className="feeduserinfo">
             <img
-              src="https://avatars.githubusercontent.com/u/96649241?v=4"
-              alt=""
+              src={`${baseUrl}/static/${el.profileImagePath}`}
+              alt="profile"
             />
-            <p>{el.name}</p>
-            {el.email}
+            <p>{el.username}</p>
+         
           </div>
 
           <div className="feedimg">
             <img
-              src={`http://localhost:8100/static/${el.result.imagepath}`}
-              alt=""
+              src={`${baseUrl}/static/${el.feedsData.imagepath}`}
+              alt="feed"
             />
           </div>
 
@@ -63,11 +65,11 @@ const Home = () => {
 
               {descriptionstate ? (
                 <div className="description">
-                  <p> Description : {el.result.description}</p>
+                  <p> Description : {el.feedsData.description}</p>
                   <p>
                     {" "}
-                    PostedOn:{el.result.postCreatedDate} Time:
-                    {el.result.postCreatedTime}
+                    PostedOn:{el.feedsData.postCreatedDate} Time:
+                    {el.feedsData.postCreatedTime}
                   </p>
                 </div>
               ) : (
@@ -83,7 +85,7 @@ const Home = () => {
 
               <Tooltip title="Post Comment">
                 <IconButton>
-                  <FiSend className="addcommentbtn" onClick={addcomment} />
+                  <FiSend className="addcommentbtn" onClick={()=>addcomment(el.feedsData._id)} />
                 </IconButton>
               </Tooltip>
             </div>

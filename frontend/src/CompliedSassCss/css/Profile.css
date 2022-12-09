@@ -89,12 +89,20 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  align-items: center;
 }
-.hoverdiv img {
-  width: 20rem;
+.hoverdiv .modelimgdiv {
+  height: 70vh;
+  width: 60%;
+}
+.hoverdiv .modelimgdiv img {
+  width: 100%;
+  height: 50vh;
   border: 1px solid red;
 }
 .hoverdiv .infodiv {
   border: 1px solid green;
   text-align: start;
+  width: 40%;
+  height: 70vh;
 }/*# sourceMappingURL=Profile.css.map */

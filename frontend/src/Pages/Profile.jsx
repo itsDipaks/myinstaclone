@@ -5,7 +5,7 @@ import {Logout} from "../ReduxStore/Auth/auth.action";
 import {AiOutlineHeart, AiOutlineDelete} from "react-icons/ai";
 import {FiEdit} from "react-icons/fi";
 import {useEffect} from "react";
-import {GetUsersFeeds} from "../ReduxStore/Feeds/feeds.action";
+import {Deletepost, GetUsersFeeds} from "../ReduxStore/Feeds/feeds.action";
 import {Getprofile} from "../ReduxStore/Profile/profile.action";
 import menicon from "../StaticData/Profileman.png";
 import {MdOutlinePostAdd} from "react-icons/md";
@@ -13,47 +13,60 @@ import {Link} from "react-router-dom";
 import {IconButton, Tooltip} from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import {useState} from "react";
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 900,
+
   bgcolor: "background.paper",
   p: 4,
 };
 
 const Profile = () => {
-  const [state, setState] = React.useState({
-    right: false,
-  });
-
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   const dispatch = useDispatch();
-  const handeldlogout = () => {
-    dispatch(Logout());
-  };
-  const olpageload = () => {
+  const [singlepost, setsinglepost] = useState({});
+  const [open, setOpen] = React.useState(false);
+  const Onpageload = () => {
     dispatch(GetUsersFeeds());
     dispatch(Getprofile());
   };
+  const handeldlogout = () => {
+    dispatch(Logout());
+  };
+
+// .......................Modal Opening......................
+  const handleOpen = (el) => {
+    setsinglepost(el);
+    setOpen(true);
+    console.log(el);
+  };
+  const handleClose = () => setOpen(false);
+
+ 
+
   useEffect(() => {
-    olpageload();
+    Onpageload();
   }, []);
-  const profileData = useSelector((store) => store.Profile.data);
-  console.log(profileData);
-  const feedsData = useSelector((store) => store.Feeds.data);
-  // console.log(feedsData)
 
 
-  const deletepost=(id)=>{
-console.log(id)
+
+
+
+  const deletepost = (id) => {
+  dispatch(Deletepost(id))
+  };
+
+  const editpost=(id,payload)=>{
+
   }
 
-  
+  const profileData = useSelector((store) => store.Profile.data);
+  const feedsData = useSelector((store) => store.Feeds.data);
+
+ 
   return (
     <>
       {profileData.map((el) => (
@@ -105,31 +118,37 @@ console.log(id)
             />
             <div className="posticon">
               <AiOutlineHeart className="icon" />
-              <FiEdit onClick={handleOpen} className="icon" />
-              <AiOutlineDelete onClick={handleOpen} className="icon" />
-              <Modal
-                open={open}
-                onClose={handleClose}
-              >
-                <Box sx={style}>
-                  <div className="hoverdiv">
-                    <img
-                      src={`http://localhost:8100/static/${el.imagepath}`}
-                      alt=""
-                    />
-                    <div className="infodiv">
-                
-               {el.name}
-               <AiOutlineHeart />
-               <AiOutlineDelete onClick={()=>deletepost(el._id)}/>
-                    </div>
-                  </div>
-                </Box>
-              </Modal>
+              <FiEdit onClick={() => handleOpen(el)} className="icon" />
+              <AiOutlineDelete onClick={() => handleOpen(el)} className="icon" />
             </div>
           </div>
         ))}
       </div>
+
+      <Modal  open={open} onClose={handleClose}>
+        <Box sx={style}>
+          <div className="hoverdiv">
+            <div className="modelimgdiv">
+            <img
+              src={`http://localhost:8100/static/${singlepost.imagepath}`}
+              alt=""
+            />
+
+            <p> Description : {singlepost.description}</p>
+            <p>Posted-on: {singlepost.postCreatedDate} at {singlepost.postCreatedTime}</p>
+            {/* <p>Tags : {singlepost.tags.map((tag)=><span>{tag}</span>)}</p> */}
+            </div>
+          
+            <div className="infodiv">
+
+              <h1>{singlepost.name}</h1>
+              {/* {el.name} */}
+              <AiOutlineHeart />
+              <AiOutlineDelete onClick={() => deletepost(singlepost._id)} />
+            </div>
+          </div>
+        </Box>
+      </Modal>
     </>
   );
 };
