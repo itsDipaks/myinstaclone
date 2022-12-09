@@ -14,6 +14,7 @@ import {IconButton, Tooltip} from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import {useState} from "react";
+import { baseUrl } from "../utils/Baseurl";
 const style = {
   position: "absolute",
   top: "50%",
@@ -64,6 +65,7 @@ const Profile = () => {
   }
 
   const profileData = useSelector((store) => store.Profile.data);
+  console.log(profileData)
   const feedsData = useSelector((store) => store.Feeds.data);
 
  
@@ -72,7 +74,7 @@ const Profile = () => {
       {profileData.map((el) => (
         <div className="userinfodiv">
           <div className="imgdiv">
-            <img src={el.Profileimg ? el.Profileimg : menicon} />
+            <img src={`${baseUrl}/static/${profileData[0].profileImagePath}`} />
           </div>
 
           <div className="infodiv">

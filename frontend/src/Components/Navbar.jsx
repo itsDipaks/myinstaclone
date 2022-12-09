@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Logout } from "../ReduxStore/Auth/auth.action";
 import "../CompliedSassCss/css/navbar.css";
@@ -9,6 +9,9 @@ import {
   AiOutlineHome,
 } from "react-icons/ai";
 import { IconButton, Tooltip } from "@mui/material";
+import { baseUrl } from "../utils/Baseurl";
+import { useEffect } from "react";
+import { Getprofile } from "../ReduxStore/Profile/profile.action";
 
 const Navbar = () => {
   const links = [
@@ -22,6 +25,11 @@ const Navbar = () => {
   const handeldlogout = () => {
     dispatch(Logout());
   };
+  useEffect(()=>{
+    dispatch(Getprofile())
+  },[])
+  const profileData = useSelector((store) => store.Profile.data);
+console.log(profileData)
   return (
     <>
       <nav className="nav_wrapper">
@@ -44,10 +52,10 @@ const Navbar = () => {
   <IconButton>
           <Link to="/profile">
             {" "}
-            <img
-              src="https://avatars.githubusercontent.com/u/96649241?v=4"
-              alt=""
-            />
+            {/* <img
+              src={`${baseUrl}/static/${profileData[0].profileImagePath }`}
+              alt="profile"
+            /> */}
           </Link>
           </IconButton>
           </Tooltip>

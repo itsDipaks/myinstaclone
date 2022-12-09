@@ -6,6 +6,7 @@ const privateKey = process.env.PRIVATEKEY;
 const Authenticate = (req, res, next) => {
   const {token} = req.headers;
 
+  
   if (token) {
     jwt.verify(token, privateKey, function (err, decoded) {
       if (decoded) {
