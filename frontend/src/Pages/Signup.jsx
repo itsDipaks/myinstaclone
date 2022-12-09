@@ -5,6 +5,7 @@ import {SignupApi} from "../ReduxStore/Auth/auth.action";
 import sideimage from "../Images/signup.png";
 import "../CompliedSassCss/css/Signup.css";
 import {Link} from "react-router-dom";
+import { useRef } from "react";
 const Signup = () => {
   const [SignupCred, setSignupCred] = useState({});
 
@@ -18,11 +19,24 @@ const Signup = () => {
     });
   };
 
+  const profilepicref=useRef()
   const handeldsubmit = (e) => {
     e.preventDefault();
-    dispatch(SignupApi(SignupCred));
 
-    console.log(SignupCred);
+    let formData=new FormData()
+    formData.append("name",SignupCred.name)
+    formData.append("username",SignupCred.username)
+    formData.append("email",SignupCred.email)
+    formData.append("password",SignupCred.password)
+    formData.append("mobile",SignupCred.mobile)
+    formData.append("country",SignupCred.country)
+    formData.append("gender",SignupCred.gender)
+    formData.append("profilepic",profilepicref.current.files[0])
+
+    
+    dispatch(SignupApi(formData));
+
+    console.log(formData);
   };
 
   return (
@@ -84,7 +98,7 @@ const Signup = () => {
                 <option value="Unspecifide">Unspecifide</option>
               </select>
             </div>
-            <input type="file" />
+            <input type="file" ref={profilepicref}/>
 
             <input type="submit" value="Signup" />
           </form>

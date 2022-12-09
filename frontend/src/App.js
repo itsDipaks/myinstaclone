@@ -2,6 +2,7 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import RequiredAuth from './Hoc/RequiredAuth';
+import SingleFeed from './Pages/SingleFeed';
 import Allroutes from './Routes/Allroutes';
 
 function App() {

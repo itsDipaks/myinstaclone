@@ -41,6 +41,11 @@
   line-height: 0.1rem;
   text-align: center;
 }
+.userinfodiv .infodiv .addpost {
+  position: absolute;
+  right: 17rem;
+  top: 2rem;
+}
 .userinfodiv .followers {
   display: flex;
   flex-direction: row;
@@ -73,5 +78,23 @@
   align-items: center;
   width: 70%;
   margin: auto;
+  padding: 0.51rem;
+}
+.postdiv .postimgdiv .posticon .icon {
+  width: 1.2rem;
+}
+
+.hoverdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hoverdiv img {
+  width: 20rem;
   border: 1px solid red;
+}
+.hoverdiv .infodiv {
+  border: 1px solid green;
+  text-align: start;
 }/*# sourceMappingURL=Profile.css.map */

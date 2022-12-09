@@ -36,6 +36,12 @@
             line-height: 0.1rem;
             text-align: center;
         }
+        .addpost{
+            position: absolute;
+            // width: 5rem
+            right: 17rem;
+            top:2rem;
+        }
     }
     .followers{
         @include flexrow;
@@ -61,7 +67,24 @@
             @include flexrow;
             width: 70%;
             margin: auto;
-            border: 1px solid red;
+            padding: 0.51rem;
+            .icon{
+                width: 1.2rem;
+            }
         }
     }
+}
+
+
+.hoverdiv{
+@include flexrow;
+// justify-content: space-evenly;
+img{
+    width: 20rem;
+    border: 1px solid red;
+}
+.infodiv{
+    border: 1px solid green;
+    text-align: start;
+}
 }

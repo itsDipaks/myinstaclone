@@ -10,32 +10,23 @@ import {MdOutlineKeyboardArrowDown} from "react-icons/md";
 import {useState} from "react";
 import Tooltip from "@mui/material/Tooltip";
 import {AddComment} from "../ReduxStore/Comment/comment.action";
+import {IconButton} from "@mui/material";
 
 const Home = () => {
-  const [isopen, setisopen] = useState(false);
   const [comment, setcomment] = useState("");
   const [descriptionstate, setdescriptionstate] = useState(false);
-
-
-  const opencomment = () => {
-    setisopen(isopen ? false : true);
+  const showdescription = () => {
+    setdescriptionstate(descriptionstate ? false : true);
   };
-const showdescription=()=>{
-  setdescriptionstate(descriptionstate?false:true)
-}
-
   const dispatch = useDispatch();
   const data = useSelector((store) => store.Feeds.data);
-console.log(data)
-
+  console.log(data);
   const addcomment = () => {
     dispatch(AddComment(comment));
   };
-
   useEffect(() => {
     dispatch(Getallpost());
   }, []);
-
   return (
     <div className="homepagediv">
       {data.map((el) => (
@@ -50,51 +41,52 @@ console.log(data)
           </div>
 
           <div className="feedimg">
-            <img src={`http://localhost:8100/static/${el.result.imagepath}`} alt="" />
+            <img
+              src={`http://localhost:8100/static/${el.result.imagepath}`}
+              alt=""
+            />
           </div>
 
           <div className="feedbottom">
             <div className="icondiv">
-              <BsSuitHeart className="likeicon" />
-              {/* <Tooltip title="Comment" arrow>
-                <FaRegComment className="commenticon" onClick={opencomment} />
-              </Tooltip> */}
+              <Tooltip title="Like">
+                <IconButton>
+                  <BsSuitHeart className="likeicon" />
+                </IconButton>
+              </Tooltip>
             </div>
 
-<div className="postinfo">
-  <p className="showmore" onClick={showdescription}>SeeMore <MdOutlineKeyboardArrowDown /></p>
+            <div className="postinfo">
+              <p className="showmore" onClick={showdescription}>
+                SeeMore <MdOutlineKeyboardArrowDown />
+              </p>
 
-{descriptionstate?( <div className="description">
-<p> Description : {el.result.description}</p>
-  <p> PostedOn:{el.result.postCreatedDate} Time:{el.result.postCreatedTime}</p>
-   
-  
-   </div>):""}
- 
+              {descriptionstate ? (
+                <div className="description">
+                  <p> Description : {el.result.description}</p>
+                  <p>
+                    {" "}
+                    PostedOn:{el.result.postCreatedDate} Time:
+                    {el.result.postCreatedTime}
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="addcommentdiv">
+              <input
+                type="text"
+                placeholder="Write Comment Heare"
+                onChange={(e) => setcomment(e.target.value)}
+              />
 
-  
-</div>
-            {/* {isopen ? (
-              <div className="addcommentdiv">
-                <input
-                  type="text"
-                  placeholder="Write Comment Heare"
-                  onChange={(e) => setcomment(e.target.value)}
-                />
-                <FiSend className="addcommentbtn" onClick={addcomment} />
-              </div>
-            ) : (
-              ""
-            )} */}
- <div className="addcommentdiv">
-                <input
-                  type="text"
-                  placeholder="Write Comment Heare"
-                  onChange={(e) => setcomment(e.target.value)}
-                />
-                <FiSend className="addcommentbtn" onClick={addcomment} />
-              </div>
-
+              <Tooltip title="Post Comment">
+                <IconButton>
+                  <FiSend className="addcommentbtn" onClick={addcomment} />
+                </IconButton>
+              </Tooltip>
+            </div>
           </div>
         </div>
       ))}

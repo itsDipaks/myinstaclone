@@ -2,6 +2,7 @@ import React from "react";
 import {Routes, Route} from "react-router-dom";
 import RequiredAuth from "../Hoc/RequiredAuth";
 import Feeds from "../Pages/Feeds";
+// import TemporaryDrawer from "../Pages/Feedss";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Profile from "../Pages/Profile";
@@ -21,6 +22,8 @@ const Allroutes = () => {
 
        } />
         <Route path="/feeds" element={<Feeds />} />
+        {/* <Route path="/feedss" element={<TemporaryDrawer />} /> */}
+   
       </Routes>
     </div>
   );

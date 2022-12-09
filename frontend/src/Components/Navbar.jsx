@@ -8,6 +8,7 @@ import {
   AiOutlineSearch,
   AiOutlineHome,
 } from "react-icons/ai";
+import { IconButton, Tooltip } from "@mui/material";
 
 const Navbar = () => {
   const links = [
@@ -39,6 +40,8 @@ const Navbar = () => {
               <AiOutlineHome className="icon" />
             </a>
           </Link>
+          <Tooltip title="Profile" className='profilebtn' >
+  <IconButton>
           <Link to="/profile">
             {" "}
             <img
@@ -46,6 +49,8 @@ const Navbar = () => {
               alt=""
             />
           </Link>
+          </IconButton>
+          </Tooltip>
         </div>
       </nav>
      

@@ -26,12 +26,12 @@ export const LoginApi = (cred) => async (dispatch) => {
   }
 };
 
-export const SignupApi = (cred) => async (dispatch) => {
+export const SignupApi = (formData) => async (dispatch) => {
   dispatch({
     type: GET_AUTH_LOADING,
   });
   try {
-    const response = await axios.post(`${baseUrl}/auth/signup`, cred);
+    const response = await axios.post(`${baseUrl}/auth/signup`, formData);
 
     dispatch({
       type: GET_AUTH_SUCESS,

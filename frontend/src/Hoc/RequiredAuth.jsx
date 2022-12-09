@@ -6,6 +6,8 @@ const RequiredAuth = ({children}) => {
 const navigat=useNavigate()
 const {token}=useSelector((store)=>store.Auth)
 if(token){
+
+  
   return children
 }
 
