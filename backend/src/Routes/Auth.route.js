@@ -1,13 +1,26 @@
 const {Router} = require("express");
 const {UserModel} = require("../models/User.model");
 const bcrypt = require("bcrypt");
+const multer=require("multer")
 var jwt = require("jsonwebtoken");
 require("dotenv").config;
 const AuthRouter = Router();
 
 const privateKey = process.env.PRIVATEKEY;
 
-AuthRouter.post("/signup", async (req, res) => {
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null,`${__dirname}/../ProfilePhoto`)
+  },
+  filename: function (req, file, cb) {
+    cb(null,file.originalname)
+  }
+})
+
+
+const uploads = multer({ storage:storage})
+AuthRouter.post("/signup",uploads.single("profilepic") ,async (req, res) => {
   const {email} = req.body;
   const checkExist = await UserModel.findOne({email});
   if (checkExist) {
@@ -15,6 +28,8 @@ AuthRouter.post("/signup", async (req, res) => {
       .status(502)
       .send({msg: "User Already Exist With this Email Plase Login !!"});
   } else {
+    const profileImagePath=req.file.originalname
+    console.log(req.body)
     const {name, username, password, country, mobile, gender} = req.body;
     bcrypt.hash(password, 4, async function (err, hashedpassword) {
       if (err) {
@@ -30,6 +45,7 @@ AuthRouter.post("/signup", async (req, res) => {
             country,
             mobile,
             gender,
+            profileImagePath
           });
           await setuser.save()
           res.status(201).json({msg: "Signup Sucessfully"});

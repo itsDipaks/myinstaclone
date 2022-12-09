@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
   mobile: { type: Number,required: true,min:10},
   country: { type: String,required: true,enum:["india","usa","china","russia"],default:"india"},
   gender: { type: String,enum:["male","female","Unspecifide"],required: true,default:"male"},
+  profileImagePath:{type:String}
 });
 
 const UserModel = mongoose.model("userdata", UserSchema);
