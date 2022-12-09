@@ -27,7 +27,7 @@ FeedsRouter.get("/allfeeds",GetFeedsController.GetallFeeds)
 
 FeedsRouter.get("/userfeeds/:user_id",Authenticate,GetFeedsController.GetUserFeeds)
 
-// FeedsRouter.delete("/userfeeds/:feedId",Authenticate,)
+FeedsRouter.delete("/delete/:post_id",Authenticate,FeedCRUDController.Deletefeed)
 
 
 

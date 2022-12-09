@@ -9,21 +9,24 @@ const GetallFeeds = async (req, res) => {
           'from': 'feeds', 
           'localField': 'user_id', 
           'foreignField': '_id:objectId', 
-          'as': 'result'
+          'as': 'feedsData'
         }
       }, {
         '$unwind': {
-          'path': '$result'
+          'path': '$feedsData'
         }
       }, {
         '$project': {
           'name': true, 
           'email': true, 
-          'result.title': true, 
-          'result.imagepath': true, 
-          'result.description': true, 
-          'result.postCreatedDate': true, 
-          'result.postCreatedTime': true
+          'username': true, 
+          'profileImagePath': true, 
+          'feedsData._id': true, 
+          'feedsData.title': true, 
+          'feedsData.imagepath': true, 
+          'feedsData.description': true, 
+          'feedsData.postCreatedDate': true, 
+          'feedsData.postCreatedTime': true
         }
       }
     ]);
