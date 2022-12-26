@@ -26,3 +26,26 @@ export const Getprofile = () => async (dispatch) => {
     });
   }
 };
+
+export const AllUsersProfile = () => async (dispatch) => {
+  dispatch({
+    type: GET_AUTH_LOADING,
+  });
+  const token = getlocalsdata("token");
+  try {
+    const response = await axios.get(`${baseUrl}/feeds/getallusersdata`,{
+        headers: {
+          token: token,
+        },});
+    dispatch({
+      type: GET_PROFILE_SUCCESS,
+      payload: response.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: GET_PROFILE_ERROR,
+    });
+  }
+};
+
+

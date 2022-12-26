@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Logout } from "../ReduxStore/Auth/auth.action";
 import "../CompliedSassCss/css/navbar.css";
 import {
@@ -25,11 +25,16 @@ const Navbar = () => {
   const handeldlogout = () => {
     dispatch(Logout());
   };
+  const navigate=useNavigate()
   useEffect(()=>{
     dispatch(Getprofile())
   },[])
   const profileData = useSelector((store) => store.Profile.data);
 console.log(profileData)
+
+const Backtohome=()=>{
+navigate("/")
+}
   return (
     <>
       <nav className="nav_wrapper">
@@ -45,17 +50,17 @@ console.log(profileData)
           <Link to="/">
             {" "}
             <a href="">
-              <AiOutlineHome className="icon" />
+              <AiOutlineHome className="icon" onClick={Backtohome}/>
             </a>
           </Link>
           <Tooltip title="Profile" className='profilebtn' >
   <IconButton>
           <Link to="/profile">
             {" "}
-            {/* <img
-              src={`${baseUrl}/static/${profileData[0].profileImagePath }`}
+            <img
+              src="https://avatars.githubusercontent.com/u/96649241?s=64&v=4"
               alt="profile"
-            /> */}
+            />
           </Link>
           </IconButton>
           </Tooltip>

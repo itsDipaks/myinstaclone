@@ -86,6 +86,7 @@ const Signup = () => {
 
             <div className="selsectdiv">
               <select name="country" onChange={handeldchange}>
+                <option value="#">Select County : </option>
                 <option value="india">India</option>
                 <option value="usa">USA</option>
                 <option value="china">CHINA</option>
@@ -93,6 +94,7 @@ const Signup = () => {
               </select>
 
               <select name="gender" onChange={handeldchange}>
+                <option value="#">Select Gender : </option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="Unspecifide">Unspecifide</option>

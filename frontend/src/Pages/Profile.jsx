@@ -15,6 +15,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import {useState} from "react";
 import { baseUrl } from "../utils/Baseurl";
+import DrawerFeeds from "../Components/DrawerFeeds";
 const style = {
   position: "absolute",
   top: "50%",
@@ -46,7 +47,13 @@ const Profile = () => {
   };
   const handleClose = () => setOpen(false);
 
- 
+//  ....................Feeds Add Drawer........................
+
+const openfeedDrawer=()=>{
+
+}
+
+
 
   useEffect(() => {
     Onpageload();
@@ -60,18 +67,21 @@ const Profile = () => {
   dispatch(Deletepost(id))
   };
 
+
+
   const editpost=(id,payload)=>{
 
   }
+  const [opendr,setopendr]=useState(false)
+  const [close,setclose]=useState(false)
 
   const profileData = useSelector((store) => store.Profile.data);
-  console.log(profileData)
   const feedsData = useSelector((store) => store.Feeds.data);
 
  
   return (
     <>
-      {profileData.map((el) => (
+      {profileData && profileData.map((el) => (
         <div className="userinfodiv">
           <div className="imgdiv">
             <img src={`${baseUrl}/static/${profileData[0].profileImagePath}`} />
@@ -81,11 +91,11 @@ const Profile = () => {
             <Tooltip title="Add Post" className="addpost">
               <IconButton>
                 <Link to={"/feeds"}>
-                  <MdOutlinePostAdd />
+                  {/* <MdOutlinePostAdd onClick={openfeedDrawer} /> */}
                 </Link>
               </IconButton>
             </Tooltip>
-
+              <DrawerFeeds data={openfeedDrawer}/>
             <div className="namediv">
               <h2>{el.name}</h2>
               <button onClick={handeldlogout}>Logout</button>
@@ -142,9 +152,7 @@ const Profile = () => {
             </div>
           
             <div className="infodiv">
-
               <h1>{singlepost.name}</h1>
-              {/* {el.name} */}
               <AiOutlineHeart />
               <AiOutlineDelete onClick={() => deletepost(singlepost._id)} />
             </div>

@@ -1,15 +1,13 @@
 var jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const privateKey = process.env.PRIVATEKEY;
-
 const Authenticate = (req, res, next) => {
   const {token} = req.headers;
-
-  
   if (token) {
-    jwt.verify(token, privateKey, function (err, decoded) {
+    jwt.verify(token, process.env.PRIVATEKEY, function (err, decoded) {
       if (decoded) {
+        const user_id  = decoded.user_id
+        req.body.user_id = user_id
         next();
       } else {
         res.status(401).json({msg: "Authentication Faild", err: err});

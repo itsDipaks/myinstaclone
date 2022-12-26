@@ -1,0 +1,72 @@
+.container {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  width: 50%;
+  margin: auto;
+}
+.container .story-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 5rem;
+  gap: 1rem;
+  height: 6rem;
+  scroll-behavior: smooth;
+  scroll-padding: 1rem;
+  justify-content: center;
+  scrollbar-width: 1px;
+  border-bottom: 1px solid grey;
+}
+.container .story-container .content {
+  display: grid;
+  gap: 0.25rem;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: all 0.2s ease-in;
+}
+.container .story-container .content:hover {
+  transform: scale(1.1);
+}
+.container .story-container .content:last-child::after {
+  content: " ";
+  position: absolute;
+  width: 1.1rem;
+  height: 100%;
+  left: -2rem;
+}
+.container .story-container .content:nth-child(1)::before {
+  content: " ";
+  position: absolute;
+  width: 1.1rem;
+  height: 100%;
+  left: -2rem;
+}
+.container .story-container .content .img-container {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: radial-gradient(rgb(0, 0, 0) 50%, transparent 0), radial-gradient(white 65%, transparent 0), linear-gradient(to top right, orange, deeppink);
+}
+.container .story-container .content .img-container img {
+  height: 100%;
+  border-radius: 50%;
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-clip-path: circle(42%);
+          clip-path: circle(42%);
+}
+.container .story-container .content .text-container {
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-size: 0.82rem;
+}/*# sourceMappingURL=userstory.css.map */

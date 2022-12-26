@@ -12,6 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 import {AddComment} from "../ReduxStore/Comment/comment.action";
 import {IconButton} from "@mui/material";
 import { baseUrl } from "../utils/Baseurl";
+import UserStory from "../Components/UserStory";
 
 const Home = () => {
   const [comment, setcomment] = useState("");
@@ -30,8 +31,10 @@ const Home = () => {
     dispatch(Getallpost());
   }, []);
   return (
+    <>
+   <UserStory/>
     <div className="homepagediv">
-      {data.map((el) => (
+      {data && data.map((el) => (
         <div className="feeddiv">
           <div className="feeduserinfo">
             <img
@@ -93,6 +96,7 @@ const Home = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

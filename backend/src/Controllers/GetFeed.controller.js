@@ -30,7 +30,6 @@ const GetallFeeds = async (req, res) => {
         }
       }
     ]);
-    // console.log(data);
     return res.send(data)
   } catch (err) {
     res.status(404).send({msg: "Not Found !!", err});
@@ -39,11 +38,9 @@ const GetallFeeds = async (req, res) => {
 };
 
 const GetUserFeeds = async (req, res) => {
-  const user_id = req.params.user_id;
-  console.log(user_id);
+  const {user_id} = req.body;
   try {
     const Userfeeds = await FeedsModel.find({user_id});
-
     // const feedimage=Userfeeds.imagepath
     res.status(201).send(Userfeeds);
   } catch (error) {
@@ -51,6 +48,23 @@ const GetUserFeeds = async (req, res) => {
   }
 };
 
-const GetFeedsController = {GetallFeeds, GetUserFeeds};
+
+
+
+const Getalluser = async (req, res) => {
+  const UsersDatas = await UserModel.find();
+console.log(UsersDatas)
+  try {
+    if (UsersDatas) {
+      res.send(UsersDatas);
+    } else {
+      res.send({msg: "All Users Data Not Found", err});
+    }
+  } catch (err) {
+    res.send({msg: "Something Wents Wrong", err});
+  }
+}
+
+const GetFeedsController = {GetallFeeds, GetUserFeeds,Getalluser};
 
 module.exports = {GetFeedsController};

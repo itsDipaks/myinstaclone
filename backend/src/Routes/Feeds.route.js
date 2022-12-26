@@ -6,7 +6,6 @@ const { Authenticate } = require("../middleware/Auth.middleware")
 
 const FeedsRouter=Router()
 
-
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null,`${__dirname}/../FeedsUplaods`)
@@ -20,15 +19,12 @@ const storage = multer.diskStorage({
 
 FeedsRouter.post("/addpost",Authenticate,uploads.single("image"),FeedCRUDController.Addfeed)
 
-
-
 FeedsRouter.get("/allfeeds",GetFeedsController.GetallFeeds)
-
 
 FeedsRouter.get("/userfeeds/:user_id",Authenticate,GetFeedsController.GetUserFeeds)
 
 FeedsRouter.delete("/delete/:post_id",Authenticate,FeedCRUDController.Deletefeed)
 
-
+FeedsRouter.get("/getallusersdata",GetFeedsController.Getalluser)
 
 module.exports={FeedsRouter}

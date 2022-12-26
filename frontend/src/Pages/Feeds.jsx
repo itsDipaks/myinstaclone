@@ -15,8 +15,6 @@ const handeldchange=(e)=>{
   })
 }
 
-
-
 const handeldsubmit=(e)=>{
 e.preventDefault()
 let formData = new FormData()

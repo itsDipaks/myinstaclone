@@ -4,11 +4,10 @@ const {UserModel} = require("../models/User.model");
 
 const UserProfileRouter = Router();
 
+
 UserProfileRouter.get("/:user_id", Authenticate, async (req, res) => {
-  const user_id= req.params.user_id;
-
-  const UserData = await UserModel.find({_id:user_id});
-
+  const {user_id} = req.body;
+  const UserData = await UserModel.find({_id: user_id});
   if (UserData) {
     res.send(UserData);
   } else {

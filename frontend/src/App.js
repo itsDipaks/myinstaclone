@@ -1,5 +1,6 @@
 
 import './App.css';
+import DrawerFeeds from './Components/DrawerFeeds';
 import Navbar from './Components/Navbar';
 import RequiredAuth from './Hoc/RequiredAuth';
 import SingleFeed from './Pages/SingleFeed';
@@ -11,7 +12,7 @@ function App() {
       {/* <h1>Instagram Clone</h1> */}
       <Navbar/>
       <Allroutes/>
-   
+   {/* <DrawerFeeds/> */}
     </div>
   );
 }
